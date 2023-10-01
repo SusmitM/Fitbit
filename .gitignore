@@ -1,0 +1,10 @@
+# Node.js / npm
+node_modules/
+.npm
+
+# React build
+build/
+.env
+
+# Visual Studio Code
+.vscode/
