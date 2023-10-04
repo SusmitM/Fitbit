@@ -9,7 +9,7 @@ const AddGoalModal = ({ setShowGoalModal }) => {
     GoalDescription: "",
     TargetDate: "",
     TargetCaloriesValue: "",
-    Status: "",
+    Status: "In Progress",
   });
 
   const handelSubmit = async (event) => {
@@ -120,7 +120,7 @@ const AddGoalModal = ({ setShowGoalModal }) => {
                 })
               }
             >
-              <option selected value="Progress">
+              <option selected value="In Progress">
                 In Progress
               </option>
               <option value="Achieved">Achieved</option>
