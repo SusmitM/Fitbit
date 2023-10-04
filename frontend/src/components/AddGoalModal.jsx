@@ -14,7 +14,6 @@ const AddGoalModal = ({ setShowGoalModal }) => {
 
   const handelSubmit = async (event) => {
     event.preventDefault();
-
     const apiResponse = await AddGoalData(formData);
     if (apiResponse) {
       alert("Goal Has Been Added");

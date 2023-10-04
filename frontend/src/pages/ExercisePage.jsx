@@ -9,7 +9,7 @@ const ExercisePage = () => {
 
   return (
     <div className="mx-8 h-screen flex flex-col items-center justify-center">
-      <div>
+      <div className="mt-4">
         <button className="text-white bg-black p-2 rounded font-semibold" onClick={()=>setExerciseModal(true)}>Add Exercise</button>
       </div>
       {showExerciseModal && <AddExerciseModal setExerciseModal={setExerciseModal}/>}

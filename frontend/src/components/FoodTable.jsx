@@ -20,7 +20,7 @@ const FoodTable = () => {
     <thead className="text-large text-gray-600 uppercase bg-gray-100 rounded">
       <tr>
         <th className="px-6 py-3">Name</th>
-        <th className="px-6 py-3">Calories Burned</th>
+        <th className="px-6 py-3">Calories</th>
         <th className="px-6 py-3">Protein</th>
         <th className="px-6 py-3">Carbohydrates</th>
         <th className="px-6 py-3">Fat</th>

@@ -14,7 +14,7 @@ const GoalSchema=new mongoose.Schema({
         required:true
     },
     TargetCaloriesValue:{
-        type:String,
+        type:Number,
         required:true
     },
     Status:{
