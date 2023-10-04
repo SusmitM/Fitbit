@@ -24,6 +24,13 @@ const AddFoodModal = ({setShowFoodModal}) => {
       alert("Error: Food Could Not Be Added")
     }
     setShowFoodModal(false)
+    setFormData({
+      FoodName: "",
+      Calories:"",
+      Protein: "",
+      Carbohydrates: "",
+      Fat: ""
+    });
    
   }
   return (

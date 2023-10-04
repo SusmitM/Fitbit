@@ -29,7 +29,7 @@ const GoalTable = () => {
             <td className="px-6 py-4 border border-slate-300">{data.GoalDescription}</td>
             <td className="px-6 py-4 border border-slate-300">{day}-{month}-{year}</td>
             <td className="px-6 py-4 border border-slate-300">{data.TargetCaloriesValue} kcal</td>
-            <td className="px-6 py-4 border border-slate-300 flex items-center gap-1"><BsCircleFill style={{color:data.Status==="In Progress"? "yellow":data.Status==="Achieved"? "green":"red" }}/> {data.Status}</td>
+            <td className="px-6 py-4 border border-slate-300 "><span className='flex items-center gap-1'><BsCircleFill style={{color:data.Status==="In Progress"? "yellow":data.Status==="Achieved"? "green":"red" }}/> {data.Status}</span></td>
           </tr>
         );
       })}

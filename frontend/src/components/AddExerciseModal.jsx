@@ -24,6 +24,7 @@ const AddExerciseModal = ({setExerciseModal}) => {
       alert("Error: Exercise Could Not Be Added")
     }
     setExerciseModal(false)
+    setFormData({exerciseName:"",exerciseDuration:"",exerciseType:"Cardio"});
    
   }
   return (
