@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 const ExerciseTable = () => {
     const store = useSelector((state) => state);
-    console.log(store)
+    
  
   return (
     <table className="text-sm text-gray-500  w-11/12 text-center">
