@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { AddExerciseData } from "../services/AddExerciseData";
+import { useDataContext } from "../context/DataContext";
 
 const AddExerciseModal = ({setExerciseModal}) => {
+  const {fetchExerciseData}=useDataContext()
   const [formData,setFormData]=useState({exerciseName:"",exerciseDuration:"",exerciseType:"Cardio"});
 
   const handelSubmit=async (event)=>{
@@ -16,6 +18,7 @@ const AddExerciseModal = ({setExerciseModal}) => {
     const apiResponse=await AddExerciseData(receivedData);
     if(apiResponse){
       alert("Exercise Has Been Added")
+      fetchExerciseData()
     }
     else{
       alert("Error: Exercise Could Not Be Added")

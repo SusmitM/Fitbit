@@ -1,10 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { AddFoodData } from '../services/AddFoodData';
+import { useDataContext } from '../context/DataContext';
 
 const AddFoodModal = ({setShowFoodModal}) => {
+  const {fetchFoodData}=useDataContext()
+  const [formData,setFormData]=useState({
+    FoodName: "",
+    Calories:"",
+    Protein: "",
+    Carbohydrates: "",
+    Fat: ""
+  })
+  const handelSubmit=async (event)=>{
+    event.preventDefault();
+    
+  
+    const apiResponse=await AddFoodData(formData);
+    if(apiResponse){
+      alert("Food Has Been Added")
+      fetchFoodData()
+    }
+    else{
+      alert("Error: Food Could Not Be Added")
+    }
+    setShowFoodModal(false)
+   
+  }
   return (
     <div className="fixed top-0 bottom-0 left-0 right-0 bg-black bg-opacity-40 z-10">
     <div className="border w-96 p-8 bg-slate-50 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-      <form>
+      <form onSubmit={handelSubmit}>
         <div className="mb-6">
           <label
             for="foodName"
@@ -18,6 +43,8 @@ const AddFoodModal = ({setShowFoodModal}) => {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Add Food Item"
             required
+            value={formData.FoodName}
+            onChange={e=>setFormData(prev=>{return{...prev,FoodName:e.target.value}})}
           />
         </div>
         <div className="mb-6">
@@ -33,6 +60,8 @@ const AddFoodModal = ({setShowFoodModal}) => {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Add Calories"
             required
+            value={formData.Calories}
+            onChange={e=>setFormData(prev=>{return{...prev,Calories:e.target.value}})}
           />
         </div>
         <div className="mb-6">
@@ -48,6 +77,8 @@ const AddFoodModal = ({setShowFoodModal}) => {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Add Protein"
             required
+            value={formData.Protein}
+            onChange={e=>setFormData(prev=>{return{...prev,Protein:e.target.value}})}
           />
         </div>
         <div className="mb-6">
@@ -63,6 +94,8 @@ const AddFoodModal = ({setShowFoodModal}) => {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Add Carbohydrates"
             required
+            value={formData.Carbohydrates}
+            onChange={e=>setFormData(prev=>{return{...prev,Carbohydrates:e.target.value}})}
           />
         </div>
         <div className="mb-6">
@@ -78,6 +111,8 @@ const AddFoodModal = ({setShowFoodModal}) => {
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Add Fat"
             required
+              value={formData.Fat}
+            onChange={e=>setFormData(prev=>{return{...prev,Fat:e.target.value}})}
           />
         </div>
         
