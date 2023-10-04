@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { GetExerciseData } from "../services/GetExerciseData";
 import { GetFoodData } from "../services/GetFoodData";
@@ -9,6 +9,8 @@ const DataContext = createContext();
 export const DataContextProvider = ({ children }) => {
   const dispatch = useDispatch();
   const store = useSelector((state) => state);
+
+  const [selectedTab,setSelectedTab]=useState("dashboard");
 
   const CaloriesBurned=store.ExerciseData.reduce((total,crr)=>total+crr.CaloriesBurned,0);
   const CaloriesConsumed=store.FoodData.reduce((total,crr)=>total+crr.Calories,0);
@@ -44,7 +46,7 @@ export const DataContextProvider = ({ children }) => {
 
   return (
     <DataContext.Provider
-      value={{ fetchExerciseData, fetchFoodData, fetchGoalData,CaloriesBurned,CaloriesConsumed,TotalCalorieGoal}}
+      value={{selectedTab,setSelectedTab, fetchExerciseData, fetchFoodData, fetchGoalData,CaloriesBurned,CaloriesConsumed,TotalCalorieGoal}}
     >
       {children}
     </DataContext.Provider>
